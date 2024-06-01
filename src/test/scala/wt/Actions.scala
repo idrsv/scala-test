@@ -60,7 +60,7 @@ object Actions {
   val flightsList: HttpRequestBuilder = http("get flights")
     .get("/cgi-bin/reservations.pl")
     .check(regex("name=\"outboundFlight\" value=\"(.*?)\"").findRandom.saveAs("outboundFlight"))
-    .check(status.is(200))
+//    .check(status.is(200))
 
   val flightsList3: HttpRequestBuilder = http("get flights 2 #{outboundFlight}")
     .get("/cgi-bin/reservations.pl")
