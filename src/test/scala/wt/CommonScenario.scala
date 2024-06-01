@@ -13,11 +13,11 @@ class CommonScenario {
     .exec(Actions.main)
     .exec(Actions.login)
     .exec(Actions.cities)
-    .exec(Actions.departure)
-    .exec(Actions.arrival)
+//    .exec(Actions.departure)
+//    .exec(Actions.arrival)
     .exec(Actions.depart)
     .exec(Actions.flightsList)
     .exec(Actions.flightsList3)
-    .exec(Actions.flight)
+//    .exec(Actions.flight)
 
 }
