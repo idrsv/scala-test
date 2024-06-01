@@ -2,7 +2,6 @@ package wt
 
 import io.gatling.core.Predef._
 import io.gatling.core.structure.{ChainBuilder, ScenarioBuilder}
-import io.gatling.http.Predef._
 
 object CommonScenario{
   def apply(): ScenarioBuilder = new CommonScenario().scn
@@ -17,4 +16,8 @@ class CommonScenario {
     .exec(Actions.departure)
     .exec(Actions.arrival)
     .exec(Actions.depart)
+    .exec(Actions.flightsList)
+    .exec(Actions.flightsList3)
+    .exec(Actions.flight)
+
 }

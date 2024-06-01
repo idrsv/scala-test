@@ -20,9 +20,9 @@ object Actions {
   val cities: HttpRequestBuilder = http("get cities")
     .get("/cgi-bin/reservations.pl")
     .queryParam("page","welcome")
-    .check(status.is(200))
     .check(css("select[name=depart] option","value").findAll.saveAs("departureCity"))
     .check(css("select[name=depart] option","value").findAll.saveAs("arrivalCity"))
+    .check(status.is(200))
 
   val departure = exec { session =>
     val listCity = session("departureCity").as[Seq[String]]
@@ -45,5 +45,18 @@ object Actions {
     .check(status.is(200))
 
 
+  val flightsList: HttpRequestBuilder = http("get flights")
+    .get("/cgi-bin/reservations.pl")
+    .check(css("input[name=outboundFlight]", "value").findAll.saveAs("flightsList"))
+    .check(status.is(200))
 
+  val flightsList3: HttpRequestBuilder = http("get flights 2 #{flightsList}")
+    .get("/cgi-bin/reservations.pl")
+
+  val flight = exec { session =>
+    val listFlights = session("flightsList").as[Seq[String]]
+    val randomFlights = listFlights(Random.nextInt(listFlights.length))
+    println(s"Random flight: $randomFlights")
+    session.set("randomFlights", randomFlights)
+  }
 }
