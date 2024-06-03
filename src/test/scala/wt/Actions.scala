@@ -8,6 +8,10 @@ import scala.util.Random
 
 object Actions {
 
+  val webtours: HttpRequestBuilder = http("GET webtours")
+    .get("/webtours/")
+    .check(status.is(200))
+
   val welcome1: HttpRequestBuilder = http("GET welcome.pl-1")
     .get("/cgi-bin/welcome.pl")
     .queryParam("signOff","true")
@@ -48,7 +52,7 @@ object Actions {
   val nav7: HttpRequestBuilder = http("GET nav.pl-7")
     .get("/cgi-bin/nav.pl")
     .queryParam("page","menu")
-    .queryParam("in","home")
+    .queryParam("in","flights")
     .check(status.is(200))
 
   val reservations8: HttpRequestBuilder = http("GET reservations.pl-8")
@@ -68,8 +72,8 @@ object Actions {
     .formParam("numPassengers", "1")
     .formParam("seatPref", "Window")
     .formParam("seatType", "Business")
-    .formParam("findFlights.x:", "33")
-    .formParam("findFlights.y:", "5")
+    .formParam("findFlights.x", "33")
+    .formParam("findFlights.y", "5")
     .formParam(".cgifields", "roundtrip")
     .formParam(".cgifields", "seatType")
     .formParam(".cgifields", "seatPref")
@@ -81,12 +85,12 @@ object Actions {
     .formParam("outboundFlight", "#{outboundFlight}")
     .formParam("numPassengers", "1")
     .formParam("advanceDiscount", "0")
-    .formParam("returnDate", "06/03/2024")
+    .formParam("returnDate", "06/02/2024")
     .formParam("numPassengers", "1")
     .formParam("seatPref", "Window")
     .formParam("seatType", "Business")
-    .formParam("reserveFlights.x:", "46")
-    .formParam("reserveFlights.y:", "9")
+    .formParam("reserveFlights.x", "46")
+    .formParam("reserveFlights.y", "9")
     .check(status.is(200))
 
   val reservations11: HttpRequestBuilder = http("POST reservations.pl-11")
@@ -114,6 +118,6 @@ object Actions {
   val reservations12: HttpRequestBuilder = http("POST reservations.pl-12")
     .post("/cgi-bin/reservations.pl")
     .formParam("Book Another.x", "55")
-    .formParam("Book Another.4", "14")
+    .formParam("Book Another.y", "14")
     .check(status.is(200))
 }
