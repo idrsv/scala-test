@@ -10,14 +10,16 @@ object CommonScenario{
 class CommonScenario {
 
   val scn: ScenarioBuilder = scenario("Common scenario")
-    .exec(Actions.main)
-    .exec(Actions.login)
-    .exec(Actions.cities)
-//    .exec(Actions.departure)
-//    .exec(Actions.arrival)
-    .exec(Actions.depart)
-    .exec(Actions.flightsList)
-    .exec(Actions.flightsList3)
-//    .exec(Actions.flight)
-
+    .exec(Actions.welcome1)
+    .exec(Actions.nav2)
+    .exec(Actions.login3)
+    .exec(Actions.nav4)
+    .exec(Actions.login5)
+    .exec(Actions.welcome6)
+    .exec(Actions.nav7)
+    .exec(Actions.reservations8)
+    .exec(Actions.reservations9)
+    .exec(Actions.reservations10)
+    .exec(Actions.reservations11)
+    .exec(Actions.reservations12)
 }
