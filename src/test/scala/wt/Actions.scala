@@ -58,8 +58,8 @@ object Actions {
   val reservations8: HttpRequestBuilder = http("GET reservations.pl-8")
     .get("/cgi-bin/reservations.pl")
     .queryParam("page","welcome")
-    .check(css("[name='depart'] > option").findRandom.saveAs("departureCity"))
-    .check(css("[name='depart'] > option").findRandom.saveAs("arrivalCity"))
+    .check(regex("(?<=value=\")(\\w+)(?=\">\\1)").findRandom.saveAs("departureCity"))
+    .check(regex("(?<=value=\")(\\w+)(?=\">\\1)").findRandom.saveAs("arrivalCity"))
     .check(status.is(200))
 
   val reservations9: HttpRequestBuilder = http("POST reservations.pl-9")
